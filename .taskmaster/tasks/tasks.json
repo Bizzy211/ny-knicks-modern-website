@@ -1,0 +1,244 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Project Setup & Configuration",
+      "description": "Initialize Next.js 14 project with App Router, Tailwind CSS v4, Framer Motion, and shadcn/ui. Configure TypeScript, ESLint, and project structure.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "frontend-dev",
+      "dependencies": [],
+      "subtasks": [
+        {"id": "1.1", "title": "Create Next.js 14 app with TypeScript", "status": "pending"},
+        {"id": "1.2", "title": "Configure Tailwind CSS v4 with Knicks color palette", "status": "pending"},
+        {"id": "1.3", "title": "Install and configure Framer Motion", "status": "pending"},
+        {"id": "1.4", "title": "Set up shadcn/ui components", "status": "pending"},
+        {"id": "1.5", "title": "Create folder structure and base layouts", "status": "pending"}
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Design System & Theme Configuration",
+      "description": "Create comprehensive design system with Knicks brand colors (#F58426 orange, #006BB6 blue), typography, spacing, and reusable design tokens.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "ux-designer",
+      "dependencies": [1],
+      "subtasks": [
+        {"id": "2.1", "title": "Define color palette CSS variables", "status": "pending"},
+        {"id": "2.2", "title": "Set up typography scale", "status": "pending"},
+        {"id": "2.3", "title": "Create spacing and sizing tokens", "status": "pending"},
+        {"id": "2.4", "title": "Design button and input variants", "status": "pending"}
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Page Transition System",
+      "description": "Implement smooth page transitions using Framer Motion with template.tsx, AnimatePresence, and route-based animation variants.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "animated-dashboard-architect",
+      "dependencies": [1, 2],
+      "subtasks": [
+        {"id": "3.1", "title": "Create template.tsx with motion wrapper", "status": "pending"},
+        {"id": "3.2", "title": "Define page transition variants (fade, slide)", "status": "pending"},
+        {"id": "3.3", "title": "Implement AnimatePresence for exit animations", "status": "pending"},
+        {"id": "3.4", "title": "Add loading state with Knicks logo animation", "status": "pending"}
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Navigation Component",
+      "description": "Build sticky navigation with glassmorphism effect, animated mobile menu, mega menu with player images, and smooth scroll functionality.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "beautiful-web-designer",
+      "dependencies": [2],
+      "subtasks": [
+        {"id": "4.1", "title": "Create sticky header with glass effect", "status": "pending"},
+        {"id": "4.2", "title": "Build animated hamburger menu", "status": "pending"},
+        {"id": "4.3", "title": "Implement mega menu dropdown", "status": "pending"},
+        {"id": "4.4", "title": "Add smooth scroll navigation", "status": "pending"}
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Hero Section with Video Background",
+      "description": "Create immersive hero section with full-screen video background, animated logo entrance, parallax scrolling, and dynamic player spotlight.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "animated-dashboard-architect",
+      "dependencies": [3, 4],
+      "subtasks": [
+        {"id": "5.1", "title": "Implement video background with autoplay", "status": "pending"},
+        {"id": "5.2", "title": "Create animated Knicks logo entrance", "status": "pending"},
+        {"id": "5.3", "title": "Add parallax scrolling effect", "status": "pending"},
+        {"id": "5.4", "title": "Build player spotlight with hover effects", "status": "pending"},
+        {"id": "5.5", "title": "Add CTA buttons with pulse animation", "status": "pending"}
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Team Roster Section",
+      "description": "Build player cards with 3D flip animation, high-res photos, stats reveal, position filtering, and featured player carousel.",
+      "status": "pending",
+      "priority": "medium",
+      "agent": "beautiful-web-designer",
+      "dependencies": [2, 3],
+      "subtasks": [
+        {"id": "6.1", "title": "Create player card component with 3D flip", "status": "pending"},
+        {"id": "6.2", "title": "Build stats reveal animation", "status": "pending"},
+        {"id": "6.3", "title": "Implement position filter with transitions", "status": "pending"},
+        {"id": "6.4", "title": "Create featured player carousel", "status": "pending"}
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Schedule & Scores Section",
+      "description": "Create game schedule display with countdown timers, score animations, calendar view, and ticket purchase CTAs.",
+      "status": "pending",
+      "priority": "medium",
+      "agent": "frontend-dev",
+      "dependencies": [2],
+      "subtasks": [
+        {"id": "7.1", "title": "Build game card component", "status": "pending"},
+        {"id": "7.2", "title": "Implement countdown timer", "status": "pending"},
+        {"id": "7.3", "title": "Create score animation effects", "status": "pending"},
+        {"id": "7.4", "title": "Add calendar view with indicators", "status": "pending"}
+      ]
+    },
+    {
+      "id": 8,
+      "title": "News & Highlights Section",
+      "description": "Build news section with video highlight cards, article cards with image zoom, infinite scroll, and category filtering.",
+      "status": "pending",
+      "priority": "medium",
+      "agent": "frontend-dev",
+      "dependencies": [2, 3],
+      "subtasks": [
+        {"id": "8.1", "title": "Create video highlight card with play overlay", "status": "pending"},
+        {"id": "8.2", "title": "Build article card with image zoom", "status": "pending"},
+        {"id": "8.3", "title": "Implement infinite scroll loading", "status": "pending"},
+        {"id": "8.4", "title": "Add category filter with animations", "status": "pending"}
+      ]
+    },
+    {
+      "id": 9,
+      "title": "MSG Experience Section",
+      "description": "Create Madison Square Garden experience section with arena showcase, interactive elements, and fan gallery.",
+      "status": "pending",
+      "priority": "medium",
+      "agent": "beautiful-web-designer",
+      "dependencies": [3],
+      "subtasks": [
+        {"id": "9.1", "title": "Build arena showcase component", "status": "pending"},
+        {"id": "9.2", "title": "Create interactive seating placeholder", "status": "pending"},
+        {"id": "9.3", "title": "Add fan photos gallery with lightbox", "status": "pending"},
+        {"id": "9.4", "title": "Implement atmosphere video section", "status": "pending"}
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Shop Preview Section",
+      "description": "Build merchandise preview with product carousel, quick-view modals, and animated badges.",
+      "status": "pending",
+      "priority": "low",
+      "agent": "frontend-dev",
+      "dependencies": [2],
+      "subtasks": [
+        {"id": "10.1", "title": "Create product card component", "status": "pending"},
+        {"id": "10.2", "title": "Build merchandise carousel", "status": "pending"},
+        {"id": "10.3", "title": "Implement quick-view modal", "status": "pending"},
+        {"id": "10.4", "title": "Add badge animations", "status": "pending"}
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Footer Component",
+      "description": "Create footer with newsletter signup animation, social links with hover effects, staggered link animations, and sponsor carousel.",
+      "status": "pending",
+      "priority": "medium",
+      "agent": "frontend-dev",
+      "dependencies": [2],
+      "subtasks": [
+        {"id": "11.1", "title": "Build newsletter signup with animation", "status": "pending"},
+        {"id": "11.2", "title": "Create social media links", "status": "pending"},
+        {"id": "11.3", "title": "Add staggered link animations", "status": "pending"},
+        {"id": "11.4", "title": "Implement sponsor logos carousel", "status": "pending"}
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Scroll Animations & Micro-interactions",
+      "description": "Implement scroll-triggered animations, parallax effects, counter animations for stats, and micro-interactions throughout.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "animated-dashboard-architect",
+      "dependencies": [5, 6, 7, 8],
+      "subtasks": [
+        {"id": "12.1", "title": "Set up Intersection Observer hooks", "status": "pending"},
+        {"id": "12.2", "title": "Create fade-in scroll animations", "status": "pending"},
+        {"id": "12.3", "title": "Implement counter animations", "status": "pending"},
+        {"id": "12.4", "title": "Add button hover effects with glow", "status": "pending"}
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Responsive Design Implementation",
+      "description": "Ensure fully responsive design across mobile (320px+), tablet (768px+), desktop (1024px+), and large screens (1440px+).",
+      "status": "pending",
+      "priority": "high",
+      "agent": "frontend-dev",
+      "dependencies": [4, 5, 6, 7, 8, 9, 10, 11],
+      "subtasks": [
+        {"id": "13.1", "title": "Mobile-first responsive layouts", "status": "pending"},
+        {"id": "13.2", "title": "Tablet breakpoint adjustments", "status": "pending"},
+        {"id": "13.3", "title": "Desktop and large screen optimization", "status": "pending"},
+        {"id": "13.4", "title": "Touch interactions for mobile", "status": "pending"}
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Performance Optimization",
+      "description": "Optimize for Lighthouse 90+ score with lazy loading, image optimization, code splitting, and reduced motion support.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "frontend-dev",
+      "dependencies": [12, 13],
+      "subtasks": [
+        {"id": "14.1", "title": "Implement lazy loading for images/videos", "status": "pending"},
+        {"id": "14.2", "title": "Add Next.js Image optimization", "status": "pending"},
+        {"id": "14.3", "title": "Configure code splitting", "status": "pending"},
+        {"id": "14.4", "title": "Add reduced motion accessibility", "status": "pending"}
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Testing & Deployment",
+      "description": "Test all animations, accessibility compliance (WCAG 2.1 AA), cross-browser compatibility, and deploy to Vercel.",
+      "status": "pending",
+      "priority": "high",
+      "agent": "test-engineer",
+      "dependencies": [14],
+      "subtasks": [
+        {"id": "15.1", "title": "Animation and interaction testing", "status": "pending"},
+        {"id": "15.2", "title": "Accessibility audit (WCAG 2.1 AA)", "status": "pending"},
+        {"id": "15.3", "title": "Cross-browser testing", "status": "pending"},
+        {"id": "15.4", "title": "Deploy to Vercel", "status": "pending"}
+      ]
+    }
+  ],
+  "metadata": {
+    "projectName": "NY Knicks Modern Website",
+    "createdAt": "2024-12-22",
+    "totalTasks": 15,
+    "totalSubtasks": 58,
+    "agents": {
+      "frontend-dev": 6,
+      "animated-dashboard-architect": 3,
+      "beautiful-web-designer": 3,
+      "ux-designer": 1,
+      "test-engineer": 1
+    }
+  }
+}
