@@ -6,7 +6,8 @@
       "mcp__exa__get_code_context_exa",
       "Bash(mkdir:*)",
       "mcp__task-master-ai__parse_prd",
-      "Bash(gh repo create:*)"
+      "Bash(gh repo create:*)",
+      "Bash(gh issue create:*)"
     ]
   }
 }

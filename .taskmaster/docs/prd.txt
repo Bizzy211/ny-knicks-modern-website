@@ -1,151 +1,293 @@
-# Product Requirements Document: New York Knicks Modern Website
+# Product Requirements Document (PRD)
+# Modern NY Knicks Fan Website
 
 ## Project Overview
-Build a modern, immersive New York Knicks fan website featuring stunning animations, high-resolution imagery, video backgrounds, and smooth page transitions. The website will capture the energy of Madison Square Garden and the passion of Knicks basketball.
 
-## Technical Stack
-- **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion / Motion
-- **Video**: next-video, HTML5 video with autoplay
-- **UI Components**: shadcn/ui, custom components
+### Project Name
+NY Knicks Modern Fan Experience
+
+### Project Description
+A visually stunning, modern fan website for the New York Knicks basketball team featuring high-resolution images and videos, smooth animations, parallax effects, and immersive transitions. The website will capture the energy of Madison Square Garden and the iconic blue and orange brand identity while providing fans with an engaging digital experience.
+
+### Target Audience
+- NY Knicks fans (casual and die-hard)
+- Basketball enthusiasts
+- Sports media consumers
+- Potential ticket buyers
+- Merchandise shoppers
+
+### Business Goals
+1. Create an immersive digital fan experience
+2. Showcase team brand identity with modern web design
+3. Drive ticket sales and merchandise revenue
+4. Increase fan engagement and time on site
+5. Build community around the Knicks brand
+
+---
+
+## Technical Requirements
+
+### Tech Stack
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation Libraries**:
+  - Framer Motion (UI animations, page transitions)
+  - GSAP (complex scroll animations)
+  - Lenis (smooth scrolling)
+- **Media**:
+  - next/image for optimized images
+  - Cloudinary/Mux for video hosting
+  - react-player for video embeds
+- **State Management**: Zustand
+- **Database**: Supabase (for dynamic content)
 - **Deployment**: Vercel
 
-## Brand Guidelines
-### Color Palette
-- Primary Orange: #F58426 (Knicks Orange)
-- Primary Blue: #006BB6 (Knicks Blue)
-- Silver: #BEC0C2
-- Black: #000000
-- White: #FFFFFF
+### Brand Guidelines
+- **Primary Colors**:
+  - Knicks Blue: #006BB6
+  - Knicks Orange: #F58426
+- **Secondary Colors**:
+  - Silver: #BEC0C2
+  - Black: #000000
+  - White: #FFFFFF
+- **Typography**:
+  - Headlines: Bold, athletic sans-serif (Bebas Neue, Oswald)
+  - Body: Clean sans-serif (Inter, DM Sans)
+- **Design Style**: Modern, energetic, premium sports aesthetic
 
-### Typography
-- Headlines: Bold, uppercase, athletic
-- Body: Clean, modern sans-serif
-- Accent: Numbers styled for stats display
+---
 
 ## Core Features
 
-### 1. Hero Section
-- Full-screen video background of game highlights
-- Animated Knicks logo entrance
-- Parallax scrolling effect
-- "Go NY Go" call-to-action with pulse animation
-- Dynamic player spotlight with hover effects
+### 1. Hero Section with Video Background
+**Priority**: Critical
 
-### 2. Navigation
-- Sticky header with glassmorphism effect
-- Animated hamburger menu for mobile
-- Mega menu with player images on hover
-- Smooth scroll to sections
-- Active state indicators with orange underline
+- Full-screen video hero with game highlights playing on loop
+- Layered gradient overlay with Knicks blue/orange
+- Animated text entrance (staggered letter animation)
+- Floating navigation with blur backdrop
+- Scroll indicator with pulse animation
+- Video optimization: compressed, lazy-loaded, with poster image fallback
 
-### 3. Team Roster Section
-- Player cards with 3D flip animation on hover
-- High-resolution player photos
-- Stats reveal on card interaction
-- Filter by position with animated transitions
-- Featured player carousel with autoplay
+### 2. Smooth Scroll Experience
+**Priority**: Critical
 
-### 4. Schedule & Scores
-- Upcoming games with countdown timers
-- Live score integration placeholder
-- Past game results with score animations
-- Calendar view with game indicators
-- Ticket purchase CTAs with hover effects
+- Lenis smooth scroll implementation
+- Parallax sections for depth
+- Scroll-triggered animations
+- Progress indicator in navigation
+- Snap scrolling for key sections
 
-### 5. News & Highlights Section
-- Video highlight cards with play overlay
-- News articles with image zoom on hover
-- Infinite scroll loading
-- Category filtering with smooth transitions
+### 3. Player Roster Section
+**Priority**: High
+
+- Interactive player cards with 3D hover effect
+- High-res player images with dynamic cropping
+- Card flip animation revealing stats
+- Filter by position (Guard, Forward, Center)
+- Animated stat bars on hover
+- Jersey number reveal animation
+
+### 4. Schedule & Scores Section
+**Priority**: High
+
+- Live game score ticker (animated)
+- Upcoming games carousel with smooth transitions
+- Calendar view with hover states
+- "Add to Calendar" functionality
+- Win/loss streak visualization
+- Animated transitions between home/away games
+
+### 5. Highlights & Media Gallery
+**Priority**: High
+
+- Masonry grid layout with staggered load animation
+- Video thumbnails with play button hover effect
+- Lightbox modal with smooth open/close transitions
+- Category filters with animated tab switching
+- Infinite scroll with loading skeleton
+- Share functionality with animated toast notifications
+
+### 6. News & Updates Section
+**Priority**: Medium
+
+- Card-based news layout with hover lift effect
+- Featured article hero with parallax image
+- Reading time indicator
+- Animated "Load More" functionality
+- Tag filtering with smooth transitions
+
+### 7. Fan Zone / Community
+**Priority**: Medium
+
+- Fan photo gallery with lightbox
 - Social media feed integration
+- Fan poll with animated results
+- Chant/celebration video clips
+- "Knicks History" timeline with scroll animations
 
-### 6. MSG Experience Section
-- 360-degree arena view placeholder
-- Interactive seating chart
-- Virtual tour video
-- Fan photos gallery with lightbox
-- Atmosphere videos with sound toggle
+### 8. Ticket & Merchandise CTAs
+**Priority**: High
 
-### 7. Shop Preview Section
-- Featured merchandise carousel
-- Product cards with quick-view modal
-- Price animations on hover
-- "New Arrivals" badge animations
-- Link to official store
+- Sticky CTA bar with slide-in animation
+- "Buy Tickets" button with glow/pulse effect
+- Merchandise preview carousel
+- Price reveal animation on hover
+- Madison Square Garden seating map (interactive)
 
-### 8. Footer
+### 9. Footer & Navigation
+**Priority**: Medium
+
+- Mega footer with animated link hovers
 - Newsletter signup with success animation
-- Social media links with hover effects
-- Quick links with staggered animations
-- Sponsor logos carousel
-- Copyright with current year
+- Social media icons with hover effects
+- Back-to-top button with smooth scroll
+- Mobile hamburger menu with slide animation
 
-## Animation Requirements
+---
+
+## Animation Specifications
 
 ### Page Transitions
-- Smooth fade and slide between pages
+- Fade + slide up on page enter
+- Exit animation before route change
 - Loading state with Knicks logo animation
-- Route-based transition variants
 
 ### Scroll Animations
-- Elements fade in on scroll
-- Parallax backgrounds
-- Counter animations for statistics
-- Staggered list animations
+- Elements fade in and slide up on scroll
+- Parallax depth on images (0.1-0.3 offset)
+- Scale animations on section entry
+- Text reveal with stagger effect
+
+### Hover States
+- Cards: lift (translateY -8px) + shadow increase
+- Buttons: scale 1.05 + color shift
+- Images: subtle zoom (scale 1.05)
+- Links: underline slide animation
 
 ### Micro-interactions
-- Button hover states with scale and glow
-- Card hover with elevation and shadow
-- Form input focus animations
-- Success/error state animations
+- Button click ripple effect
+- Form input focus glow
+- Toggle switches with spring physics
+- Loading spinners with Knicks branding
 
-### Performance Optimizations
-- Lazy loading for images and videos
-- Reduced motion for accessibility
-- GPU-accelerated transforms only
-- Intersection Observer for scroll triggers
+---
 
-## Pages Required
-1. **Home** - Hero, featured content, quick links
-2. **Team** - Full roster, coaching staff
-3. **Schedule** - Full season schedule, results
-4. **News** - Articles, videos, press releases
-5. **Tickets** - Seating, pricing, purchase flow
-6. **Shop** - Merchandise preview, store link
-7. **Arena** - MSG information, virtual tour
-8. **History** - Championships, legends, timeline
+## Page Structure
 
-## Responsive Breakpoints
-- Mobile: 320px - 767px
-- Tablet: 768px - 1023px
-- Desktop: 1024px - 1439px
-- Large: 1440px+
+### Pages Required
+1. **Home** - Main landing with all sections
+2. **Roster** - Full team roster with player detail modals
+3. **Schedule** - Complete season schedule
+4. **News** - Blog/news listing page
+5. **Tickets** - Ticket purchase information
+6. **Shop** - Merchandise redirect/preview
+7. **History** - Team history timeline
+8. **Contact** - Contact form and MSG info
 
-## Performance Targets
-- Lighthouse Performance: 90+
+---
+
+## Performance Requirements
+
+- Lighthouse Performance Score: 90+
 - First Contentful Paint: < 1.5s
 - Largest Contentful Paint: < 2.5s
+- Total Blocking Time: < 200ms
 - Cumulative Layout Shift: < 0.1
-- Time to Interactive: < 3s
+- Video: Lazy-loaded, compressed, with poster images
+- Images: WebP format, responsive srcsets
 
-## Accessibility Requirements
-- WCAG 2.1 AA compliance
-- Keyboard navigation
-- Screen reader support
-- Reduced motion support
-- Color contrast ratios met
+---
 
-## Third-Party Integrations
-- YouTube/Vimeo for video embeds
-- Social media APIs (Twitter, Instagram)
-- Analytics (Google Analytics 4)
-- Newsletter service (placeholder)
+## Responsive Design
+
+- Desktop: 1440px+ (full experience)
+- Laptop: 1024px-1439px
+- Tablet: 768px-1023px
+- Mobile: 320px-767px
+- Touch-friendly interactions on mobile
+- Reduced motion for accessibility preferences
+
+---
+
+## Media Assets Required
+
+### Videos
+- Hero background (30-60 sec highlight reel, muted, looped)
+- Player intro clips (5-10 sec each)
+- MSG atmosphere footage
+- Historical championship moments
+
+### Images
+- High-res player photos (PNG with transparent background)
+- Action shots from games
+- Madison Square Garden exterior/interior
+- Team logos and badges
+- Fan experience photos
+- Historical archive images
+
+---
 
 ## Success Metrics
-- Page load time under 3 seconds
-- Smooth 60fps animations
-- Mobile-first responsive design
-- SEO optimized structure
-- Engaging user experience comparable to Lakers redesign (26% engagement target)
+
+- Average session duration: 3+ minutes
+- Pages per session: 4+
+- Bounce rate: < 40%
+- Video engagement rate: 60%+
+- Ticket CTA click-through: 5%+
+- Mobile vs Desktop traffic balance
+
+---
+
+## Timeline Considerations
+
+### Phase 1: Foundation
+- Project setup (Next.js, Tailwind, Framer Motion)
+- Design system and component library
+- Hero section with video
+- Navigation and footer
+
+### Phase 2: Core Content
+- Player roster section
+- Schedule and scores
+- News section
+- Basic animations
+
+### Phase 3: Enhanced Features
+- Media gallery with lightbox
+- Fan zone features
+- Advanced animations
+- Ticket/merchandise CTAs
+
+### Phase 4: Polish & Launch
+- Performance optimization
+- Accessibility audit
+- Cross-browser testing
+- SEO optimization
+- Analytics integration
+
+---
+
+## Agent Assignments (A.E.S)
+
+| Task Area | Recommended Agent |
+|-----------|------------------|
+| Frontend Development | frontend-dev |
+| Animations & Effects | animated-dashboard-architect |
+| UI/UX Design | beautiful-web-designer |
+| Database & API | backend-dev, db-architect |
+| Testing | test-engineer |
+| DevOps & Deployment | devops-engineer |
+| Code Review | code-reviewer |
+| Documentation | docs-engineer |
+
+---
+
+## Notes
+
+- Prioritize visual impact and performance balance
+- Use placeholder images initially, swap for official assets
+- Ensure accessibility (WCAG 2.1 AA compliance)
+- Consider dark mode as future enhancement
+- Plan for CMS integration for news/schedule updates

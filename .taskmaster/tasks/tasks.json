@@ -1,244 +1,511 @@
 {
-  "tasks": [
-    {
-      "id": 1,
-      "title": "Project Setup & Configuration",
-      "description": "Initialize Next.js 14 project with App Router, Tailwind CSS v4, Framer Motion, and shadcn/ui. Configure TypeScript, ESLint, and project structure.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "frontend-dev",
-      "dependencies": [],
-      "subtasks": [
-        {"id": "1.1", "title": "Create Next.js 14 app with TypeScript", "status": "pending"},
-        {"id": "1.2", "title": "Configure Tailwind CSS v4 with Knicks color palette", "status": "pending"},
-        {"id": "1.3", "title": "Install and configure Framer Motion", "status": "pending"},
-        {"id": "1.4", "title": "Set up shadcn/ui components", "status": "pending"},
-        {"id": "1.5", "title": "Create folder structure and base layouts", "status": "pending"}
+  "master": {
+    "tasks": [
+      {
+        "id": "1",
+        "title": "Project Setup and Foundation",
+        "description": "Initialize Next.js 14 project with TypeScript, configure Tailwind CSS, and set up the required animation libraries",
+        "details": "Create new Next.js 14 project using App Router: `npx create-next-app@latest ny-knicks-website --typescript --tailwind --app`. Install dependencies: `npm install framer-motion gsap lenis zustand @supabase/supabase-js react-player`. Configure tailwind.config.js with Knicks brand colors (Blue: #006BB6, Orange: #F58426, Silver: #BEC0C2). Set up TypeScript strict mode and ESLint configuration. Create folder structure: /components, /lib, /hooks, /types, /styles.",
+        "testStrategy": "Verify project builds successfully with `npm run build`. Test TypeScript compilation. Confirm all dependencies are properly installed and importable.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "in-progress",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize Next.js 14 Project with TypeScript",
+            "description": "Create the base Next.js 14 project using App Router with TypeScript configuration",
+            "dependencies": [],
+            "details": "Run `npx create-next-app@latest ny-knicks-website --typescript --tailwind --app` to create the project. Verify TypeScript configuration is properly set up with strict mode enabled. Configure tsconfig.json with proper compiler options and path mapping.",
+            "status": "pending",
+            "testStrategy": "Verify project creation with `npm run dev` and check TypeScript compilation without errors",
+            "parentId": "undefined"
+          },
+          {
+            "id": 2,
+            "title": "Install and Configure Required Dependencies",
+            "description": "Install all necessary animation and utility libraries for the project",
+            "dependencies": [
+              1
+            ],
+            "details": "Install dependencies using `npm install framer-motion gsap lenis zustand @supabase/supabase-js react-player`. Verify all packages are properly installed and can be imported. Check package.json for correct versions and resolve any peer dependency warnings.",
+            "status": "pending",
+            "testStrategy": "Test import statements for each library and verify no installation errors or conflicts",
+            "parentId": "undefined"
+          },
+          {
+            "id": 3,
+            "title": "Configure Tailwind CSS with Knicks Brand Colors",
+            "description": "Set up Tailwind configuration with official NY Knicks brand colors and custom styling",
+            "dependencies": [
+              2
+            ],
+            "details": "Configure tailwind.config.js with Knicks brand colors: Blue (#006BB6), Orange (#F58426), Silver (#BEC0C2). Add custom color palette, typography settings, and animation utilities. Set up responsive breakpoints and custom utility classes for the design system.",
+            "status": "pending",
+            "testStrategy": "Create test components using brand colors and verify proper CSS generation and color accuracy",
+            "parentId": "undefined"
+          },
+          {
+            "id": 4,
+            "title": "Setup TypeScript Configuration and ESLint",
+            "description": "Configure TypeScript strict mode and ESLint rules for code quality and consistency",
+            "dependencies": [
+              1
+            ],
+            "details": "Enable TypeScript strict mode in tsconfig.json with proper compiler options. Configure ESLint with Next.js recommended rules, TypeScript support, and custom rules for code consistency. Set up prettier integration for code formatting.",
+            "status": "pending",
+            "testStrategy": "Run `npm run lint` and `tsc --noEmit` to verify no TypeScript or linting errors",
+            "parentId": "undefined"
+          },
+          {
+            "id": 5,
+            "title": "Create Project Folder Structure and Base Files",
+            "description": "Establish organized folder structure and create base configuration files",
+            "dependencies": [
+              4
+            ],
+            "details": "Create folder structure: /components (ui, layout, sections), /lib (utils, constants), /hooks (custom React hooks), /types (TypeScript definitions), /styles (global styles). Set up index files for clean imports and create base utility functions and type definitions.",
+            "status": "pending",
+            "testStrategy": "Verify folder structure is created correctly and test import/export functionality between folders",
+            "parentId": "undefined"
+          }
+        ],
+        "updatedAt": "2025-12-23T03:15:45.098Z"
+      },
+      {
+        "id": "2",
+        "title": "Design System and Component Library",
+        "description": "Create reusable UI components and establish design system with Knicks brand guidelines",
+        "details": "Create base components: Button, Card, Container, Typography. Implement Knicks color palette in Tailwind config. Set up typography system with Bebas Neue for headlines and Inter for body text. Create component variants for different states (hover, active, disabled). Implement responsive breakpoints. Create utility classes for animations and transitions. Set up Storybook for component documentation.",
+        "testStrategy": "Test component rendering across different screen sizes. Verify color consistency with brand guidelines. Test component props and variants. Validate accessibility with screen readers.",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "3",
+        "title": "Navigation and Layout Structure",
+        "description": "Build responsive navigation with floating blur backdrop and mobile hamburger menu",
+        "details": "Create floating navigation component with backdrop-blur-md effect. Implement mobile hamburger menu with slide animation using Framer Motion. Add scroll progress indicator. Create layout component with header and footer. Implement navigation links: Home, Roster, Schedule, News, Tickets, Shop, History, Contact. Add smooth scroll behavior and active link highlighting. Include back-to-top button with smooth scroll functionality.",
+        "testStrategy": "Test navigation responsiveness across all breakpoints. Verify smooth scroll behavior. Test mobile menu open/close animations. Validate keyboard navigation and accessibility.",
+        "priority": "high",
+        "dependencies": [
+          "2"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "4",
+        "title": "Smooth Scroll Implementation with Lenis",
+        "description": "Integrate Lenis smooth scrolling library with scroll-triggered animations",
+        "details": "Install and configure Lenis: `npm install @studio-freight/lenis`. Create custom hook useLenis() for scroll management. Implement smooth scroll with easing configuration. Add scroll-triggered animations using GSAP ScrollTrigger. Create parallax sections with different scroll speeds (0.1-0.3 offset). Implement snap scrolling for key sections. Add scroll progress tracking for navigation indicator.",
+        "testStrategy": "Test smooth scroll performance across different devices. Verify parallax effects work correctly. Test scroll snap functionality. Validate scroll position tracking accuracy.",
+        "priority": "high",
+        "dependencies": [
+          "3"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "5",
+        "title": "Hero Section with Video Background",
+        "description": "Create full-screen hero section with looping video background and animated text entrance",
+        "details": "Implement video background using HTML5 video element with autoplay, muted, loop attributes. Add gradient overlay with Knicks blue/orange using CSS gradients. Create staggered letter animation for hero text using Framer Motion. Implement video optimization: compressed format, poster image fallback, lazy loading. Add scroll indicator with pulse animation. Ensure video is responsive and maintains aspect ratio. Include fallback image for slow connections.",
+        "testStrategy": "Test video loading and playback across browsers. Verify gradient overlay appearance. Test text animations timing and smoothness. Validate video performance on mobile devices. Test fallback scenarios.",
+        "priority": "high",
+        "dependencies": [
+          "4"
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement HTML5 Video Background Structure",
+            "description": "Create the basic HTML5 video element with autoplay, muted, and loop attributes for the hero section background",
+            "dependencies": [],
+            "details": "Set up HTML5 video element with proper attributes (autoplay, muted, loop, playsinline). Configure video sources with multiple formats (MP4, WebM) for browser compatibility. Add poster image attribute for initial frame display. Implement proper video container with full-screen positioning using CSS.",
+            "status": "pending",
+            "testStrategy": "Test video autoplay across different browsers and devices. Verify muted playback and loop functionality. Test poster image display before video loads.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 2,
+            "title": "Create Gradient Overlay with Knicks Branding",
+            "description": "Add CSS gradient overlay on top of video background using Knicks blue and orange colors",
+            "dependencies": [
+              1
+            ],
+            "details": "Implement CSS gradient overlay using linear-gradient with Knicks brand colors (blue #006BB6, orange #F58426). Position overlay above video but below text content using z-index. Create smooth gradient transition from transparent to semi-transparent for optimal text readability. Ensure gradient maintains brand consistency.",
+            "status": "pending",
+            "testStrategy": "Verify gradient colors match Knicks brand guidelines. Test overlay opacity for text readability. Validate gradient appearance across different screen sizes.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 3,
+            "title": "Implement Animated Text Entrance with Framer Motion",
+            "description": "Create staggered letter animation for hero text using Framer Motion with smooth entrance effects",
+            "dependencies": [
+              2
+            ],
+            "details": "Build text animation component using Framer Motion with staggered letter reveals. Implement entrance animations with slide-up and fade-in effects. Configure animation timing and easing for smooth visual impact. Add delay between letter animations for staggered effect. Ensure animations are performant and accessible.",
+            "status": "pending",
+            "testStrategy": "Test animation smoothness and timing across devices. Verify staggered effect timing. Test animation performance on lower-end devices. Validate accessibility with reduced motion preferences.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 4,
+            "title": "Optimize Video Performance and Add Fallbacks",
+            "description": "Implement video optimization with compressed formats, lazy loading, and fallback image for slow connections",
+            "dependencies": [
+              1
+            ],
+            "details": "Compress video files for optimal loading performance while maintaining quality. Implement lazy loading for video element to improve initial page load. Add fallback static image for users with slow connections or disabled autoplay. Configure responsive video sizing to maintain aspect ratio across devices. Add loading states and error handling.",
+            "status": "pending",
+            "testStrategy": "Test video loading performance on slow connections. Verify fallback image display when video fails. Test responsive behavior across different screen sizes. Validate lazy loading functionality.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 5,
+            "title": "Add Scroll Indicator with Pulse Animation",
+            "description": "Create animated scroll indicator at bottom of hero section with pulse effect to guide user interaction",
+            "dependencies": [
+              3
+            ],
+            "details": "Design and implement scroll indicator component with downward arrow or chevron icon. Add CSS pulse animation using keyframes for attention-grabbing effect. Position indicator at bottom center of hero section with proper spacing. Implement smooth scroll behavior when indicator is clicked. Add hover states and ensure indicator is accessible.",
+            "status": "pending",
+            "testStrategy": "Test pulse animation smoothness and timing. Verify scroll indicator positioning across screen sizes. Test click functionality and smooth scrolling behavior. Validate accessibility with keyboard navigation.",
+            "parentId": "undefined"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "title": "Supabase Database Setup and Configuration",
+        "description": "Set up Supabase database with tables for players, games, news, and media content",
+        "details": "Create Supabase project and configure environment variables. Design database schema: players table (id, name, position, jersey_number, stats, image_url), games table (id, date, opponent, home_away, score, status), news table (id, title, content, author, published_date, featured_image), media table (id, type, url, caption, category). Set up Row Level Security (RLS) policies. Create API functions for data fetching. Implement TypeScript types for database entities.",
+        "testStrategy": "Test database connection and authentication. Verify table creation and relationships. Test CRUD operations for each table. Validate RLS policies and security measures.",
+        "priority": "medium",
+        "dependencies": [
+          "1"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "7",
+        "title": "Player Roster Section with Interactive Cards",
+        "description": "Build interactive player cards with 3D hover effects and flip animations revealing stats",
+        "details": "Create PlayerCard component with 3D transform effects using CSS transforms and Framer Motion. Implement card flip animation revealing player stats on hover. Add filter functionality by position (Guard, Forward, Center). Create animated stat bars using CSS animations and GSAP. Implement jersey number reveal animation. Use next/image for optimized player photos with dynamic cropping. Add loading skeleton for better UX.",
+        "testStrategy": "Test 3D hover effects across different browsers. Verify flip animation smoothness. Test filtering functionality. Validate image optimization and loading. Test touch interactions on mobile devices.",
+        "priority": "high",
+        "dependencies": [
+          "6",
+          "2"
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create PlayerCard Component with 3D Transform Effects",
+            "description": "Build the core PlayerCard component with CSS transforms and Framer Motion for 3D hover effects",
+            "dependencies": [],
+            "details": "Implement PlayerCard component using CSS perspective and transform3d properties. Add Framer Motion for smooth hover animations with rotateY and scale transforms. Create card structure with player photo, name, and jersey number. Implement hover state that lifts and tilts the card with shadow effects.",
+            "status": "pending",
+            "testStrategy": "Test 3D hover effects across Chrome, Firefox, Safari. Verify smooth animations and performance on different devices.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 2,
+            "title": "Implement Card Flip Animation with Stats Reveal",
+            "description": "Add flip animation functionality that reveals detailed player statistics on hover or click",
+            "dependencies": [
+              1
+            ],
+            "details": "Create flip animation using CSS transforms and Framer Motion's AnimatePresence. Design back side of card with player stats (points, rebounds, assists, shooting percentage). Implement smooth transition between front and back faces. Add timing controls and easing for professional feel.",
+            "status": "pending",
+            "testStrategy": "Test flip animation smoothness and timing. Verify stats display correctly and animations don't conflict with 3D effects.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 3,
+            "title": "Add Position Filter Functionality",
+            "description": "Create filtering system to display players by position (Guard, Forward, Center) with smooth transitions",
+            "dependencies": [
+              1
+            ],
+            "details": "Build filter component with position buttons (Guard, Forward, Center, All). Implement filtering logic with smooth enter/exit animations using Framer Motion's layout animations. Add active filter state styling. Create staggered animation for filtered results appearance.",
+            "status": "pending",
+            "testStrategy": "Test filtering functionality with different position combinations. Verify smooth transitions and layout shifts.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 4,
+            "title": "Create Animated Stat Bars and Jersey Number Reveal",
+            "description": "Implement animated progress bars for player statistics and jersey number reveal animation",
+            "dependencies": [
+              2
+            ],
+            "details": "Create animated stat bars using CSS animations and GSAP for smooth progress fills. Implement jersey number reveal with slide-in or fade-in animation. Add percentage-based stat visualization with color coding. Create staggered animation sequence for multiple stats appearing in sequence.",
+            "status": "pending",
+            "testStrategy": "Test stat bar animations timing and smoothness. Verify jersey number reveal works consistently across different card states.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 5,
+            "title": "Optimize Player Images and Add Loading States",
+            "description": "Implement optimized player photos with dynamic cropping and loading skeleton for better UX",
+            "dependencies": [
+              1
+            ],
+            "details": "Use next/image for optimized player photos with dynamic cropping and lazy loading. Create loading skeleton component that matches card dimensions. Implement error fallback for missing images. Add blur placeholder while images load. Optimize image sizes for different screen densities.",
+            "status": "pending",
+            "testStrategy": "Test image loading performance and optimization. Verify skeleton loading states and error handling. Test on slow network connections.",
+            "parentId": "undefined"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "title": "Schedule and Scores Section",
+        "description": "Create live game score ticker and upcoming games carousel with smooth transitions",
+        "details": "Build live score ticker with animated updates using Framer Motion. Create games carousel with smooth transitions and touch/swipe support. Implement calendar view with hover states and date navigation. Add 'Add to Calendar' functionality using calendar APIs. Create win/loss streak visualization with animated progress bars. Implement real-time score updates using Supabase real-time subscriptions. Add loading states and error handling.",
+        "testStrategy": "Test carousel navigation and touch gestures. Verify calendar functionality across different calendar apps. Test real-time updates and data synchronization. Validate responsive behavior on mobile devices.",
+        "priority": "high",
+        "dependencies": [
+          "6",
+          "2"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "9",
+        "title": "Media Gallery with Lightbox and Video Player",
+        "description": "Build masonry grid media gallery with lightbox modal and video player integration",
+        "details": "Create masonry grid layout using CSS Grid or Masonry library. Implement staggered load animation for media items. Build lightbox modal with smooth open/close transitions using Framer Motion. Integrate react-player for video playback with custom controls. Add category filters with animated tab switching. Implement infinite scroll with loading skeleton. Add share functionality with animated toast notifications. Optimize images using next/image with WebP format.",
+        "testStrategy": "Test masonry layout responsiveness. Verify lightbox functionality and keyboard navigation. Test video player controls and performance. Validate infinite scroll behavior and loading states.",
+        "priority": "high",
+        "dependencies": [
+          "6",
+          "2"
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Masonry Grid Layout Component",
+            "description": "Build responsive masonry grid layout for media gallery using CSS Grid or Masonry library",
+            "dependencies": [],
+            "details": "Create MediaGallery component with masonry grid layout using CSS Grid or react-masonry-css library. Implement responsive breakpoints for different screen sizes. Add staggered load animation for media items using Framer Motion with delay variants. Ensure proper spacing and alignment of media items.",
+            "status": "pending",
+            "testStrategy": "Test masonry layout responsiveness across different screen sizes. Verify proper spacing and alignment of media items.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 2,
+            "title": "Build Lightbox Modal with Animations",
+            "description": "Create lightbox modal component with smooth open/close transitions using Framer Motion",
+            "dependencies": [
+              1
+            ],
+            "details": "Build LightboxModal component with backdrop blur and smooth scale/fade animations using Framer Motion. Implement keyboard navigation (ESC to close, arrow keys for navigation). Add close button and click-outside-to-close functionality. Include smooth transition animations for opening and closing states.",
+            "status": "pending",
+            "testStrategy": "Test lightbox functionality and keyboard navigation. Verify smooth animations and proper modal behavior.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 3,
+            "title": "Integrate Video Player with Custom Controls",
+            "description": "Implement react-player for video playback with custom controls and optimization",
+            "dependencies": [
+              2
+            ],
+            "details": "Integrate react-player component for video playback within lightbox modal. Create custom video controls overlay with play/pause, progress bar, volume control, and fullscreen toggle. Implement video optimization with lazy loading and proper format support. Add loading states and error handling for video playback.",
+            "status": "pending",
+            "testStrategy": "Test video player controls and performance. Verify video loading and playback across different formats and devices.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 4,
+            "title": "Add Category Filters and Infinite Scroll",
+            "description": "Implement category filtering with animated tabs and infinite scroll functionality",
+            "dependencies": [
+              1
+            ],
+            "details": "Create FilterTabs component with animated tab switching using Framer Motion. Implement category filtering logic for media items (photos, videos, highlights). Add infinite scroll functionality with loading skeleton using Intersection Observer API. Include smooth loading animations and proper state management for filtered content.",
+            "status": "pending",
+            "testStrategy": "Test filtering functionality and animated tab switching. Validate infinite scroll behavior and loading states.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 5,
+            "title": "Implement Share Functionality and Image Optimization",
+            "description": "Add share functionality with toast notifications and optimize images using next/image",
+            "dependencies": [
+              2,
+              3
+            ],
+            "details": "Implement share functionality for media items with social media integration and copy-to-clipboard. Create animated toast notifications using Framer Motion for share confirmations. Optimize all images using next/image with WebP format, proper sizing, and lazy loading. Add image placeholder and blur-up effect for better UX.",
+            "status": "pending",
+            "testStrategy": "Test share functionality across different platforms. Verify image optimization and loading performance. Test toast notification animations.",
+            "parentId": "undefined"
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "title": "News and Updates Section",
+        "description": "Create card-based news layout with featured articles and animated interactions",
+        "details": "Build news card components with hover lift effects using CSS transforms. Create featured article hero with parallax image background. Add reading time calculation and indicator. Implement animated 'Load More' functionality with smooth transitions. Add tag filtering with animated transitions. Create article detail pages with smooth page transitions. Implement SEO optimization with Next.js metadata API. Add social sharing functionality.",
+        "testStrategy": "Test card hover animations and transitions. Verify parallax effects on featured articles. Test filtering and pagination functionality. Validate SEO metadata and social sharing.",
+        "priority": "medium",
+        "dependencies": [
+          "6",
+          "2"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "11",
+        "title": "Ticket and Merchandise CTA Components",
+        "description": "Build sticky CTA bar and interactive seating map for ticket sales",
+        "details": "Create sticky CTA bar with slide-in animation using Framer Motion. Build 'Buy Tickets' button with glow/pulse effect using CSS animations. Create merchandise preview carousel with smooth transitions. Implement price reveal animation on hover. Build interactive Madison Square Garden seating map using SVG and JavaScript. Add hover states and click interactions for seat selection. Implement responsive design for mobile ticket purchasing flow.",
+        "testStrategy": "Test sticky CTA positioning across different scroll positions. Verify button animations and interactions. Test seating map functionality and responsiveness. Validate mobile ticket flow usability.",
+        "priority": "high",
+        "dependencies": [
+          "2"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "12",
+        "title": "Fan Zone and Community Features",
+        "description": "Create fan photo gallery, social media integration, and interactive polls",
+        "details": "Build fan photo gallery with lightbox functionality reusing media gallery components. Integrate social media feeds using platform APIs (Twitter, Instagram). Create interactive fan polls with animated results using Chart.js or D3.js. Add chant/celebration video clips section. Build 'Knicks History' timeline with scroll-triggered animations using GSAP ScrollTrigger. Implement user-generated content moderation system. Add social sharing and engagement features.",
+        "testStrategy": "Test social media API integrations and rate limiting. Verify poll functionality and result animations. Test timeline scroll animations. Validate user content submission and moderation workflow.",
+        "priority": "medium",
+        "dependencies": [
+          "9",
+          "6"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "13",
+        "title": "Page Routing and Transitions",
+        "description": "Implement Next.js App Router pages with smooth page transitions",
+        "details": "Create page components for: Home, Roster, Schedule, News, Tickets, Shop, History, Contact. Implement page transitions using Framer Motion with fade + slide up animations. Add loading states with Knicks logo animation. Create dynamic routes for news articles and player details. Implement SEO optimization with metadata API. Add error boundaries and 404 page. Configure route protection and authentication where needed.",
+        "testStrategy": "Test page navigation and transition smoothness. Verify dynamic routing functionality. Test loading states and error handling. Validate SEO metadata and social sharing previews.",
+        "priority": "medium",
+        "dependencies": [
+          "3",
+          "5"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "14",
+        "title": "Performance Optimization and Image Handling",
+        "description": "Optimize website performance, implement lazy loading, and configure image optimization",
+        "details": "Configure next/image with WebP format and responsive srcsets. Implement lazy loading for videos and images. Optimize bundle size using dynamic imports and code splitting. Configure Cloudinary or similar service for image optimization. Implement service worker for caching strategies. Add performance monitoring with Web Vitals. Optimize CSS and JavaScript delivery. Configure compression and minification for production builds.",
+        "testStrategy": "Run Lighthouse audits targeting 90+ performance score. Test image loading and optimization. Verify lazy loading behavior. Measure Core Web Vitals: FCP < 1.5s, LCP < 2.5s, TBT < 200ms, CLS < 0.1.",
+        "priority": "high",
+        "dependencies": [
+          "13"
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configure Next.js Image Optimization and WebP Support",
+            "description": "Set up next/image component with WebP format support and responsive srcsets for optimal image delivery",
+            "dependencies": [],
+            "details": "Configure next.config.js with image optimization settings. Set up next/image component with WebP format, responsive srcsets, and proper sizing. Configure image domains and loaders. Implement placeholder and blur effects for better UX during loading.",
+            "status": "pending",
+            "testStrategy": "Test image loading across different devices and network conditions. Verify WebP format delivery and fallback to other formats when needed.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 2,
+            "title": "Implement Lazy Loading for Images and Videos",
+            "description": "Add lazy loading functionality for all media content to improve initial page load performance",
+            "dependencies": [
+              1
+            ],
+            "details": "Implement Intersection Observer API for custom lazy loading. Configure next/image with lazy loading enabled. Add lazy loading for video components using react-player. Implement progressive image loading with low-quality placeholders. Add loading states and skeleton components.",
+            "status": "pending",
+            "testStrategy": "Test lazy loading behavior on scroll. Verify images and videos load only when entering viewport. Measure performance improvements in loading times.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 3,
+            "title": "Optimize Bundle Size with Dynamic Imports and Code Splitting",
+            "description": "Implement code splitting and dynamic imports to reduce initial bundle size and improve loading performance",
+            "dependencies": [],
+            "details": "Set up dynamic imports for heavy components and pages. Implement route-based code splitting using Next.js automatic splitting. Add dynamic imports for libraries like GSAP and Framer Motion where needed. Configure webpack bundle analyzer to monitor bundle sizes. Implement lazy loading for non-critical components.",
+            "status": "pending",
+            "testStrategy": "Use webpack-bundle-analyzer to verify bundle size reduction. Test page loading performance and measure JavaScript bundle sizes. Verify dynamic imports work correctly.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 4,
+            "title": "Configure Cloudinary Image Optimization Service",
+            "description": "Set up Cloudinary or similar service for advanced image optimization, transformation, and delivery",
+            "dependencies": [
+              1
+            ],
+            "details": "Configure Cloudinary account and API keys. Set up image upload and transformation pipelines. Implement automatic format selection (WebP, AVIF). Configure responsive image delivery with multiple breakpoints. Add image compression and quality optimization. Implement CDN delivery for global performance.",
+            "status": "pending",
+            "testStrategy": "Test image transformations and delivery. Verify automatic format selection works. Measure image loading performance improvements and CDN delivery speed.",
+            "parentId": "undefined"
+          },
+          {
+            "id": 5,
+            "title": "Implement Performance Monitoring and Web Vitals Tracking",
+            "description": "Add comprehensive performance monitoring with Web Vitals tracking and optimization recommendations",
+            "dependencies": [
+              2,
+              3,
+              4
+            ],
+            "details": "Implement Web Vitals tracking for FCP, LCP, TBT, and CLS metrics. Set up performance monitoring dashboard. Add service worker for caching strategies. Configure compression and minification for production builds. Implement CSS and JavaScript delivery optimization. Add performance budgets and alerts.",
+            "status": "pending",
+            "testStrategy": "Run Lighthouse audits targeting 90+ performance score. Monitor Core Web Vitals: FCP < 1.5s, LCP < 2.5s, TBT < 200ms, CLS < 0.1. Test caching strategies and compression effectiveness.",
+            "parentId": "undefined"
+          }
+        ]
+      },
+      {
+        "id": "15",
+        "title": "Accessibility, Testing, and Deployment",
+        "description": "Implement accessibility features, comprehensive testing, and Vercel deployment",
+        "details": "Implement WCAG 2.1 AA compliance: semantic HTML, ARIA labels, keyboard navigation, focus management. Add reduced motion support using prefers-reduced-motion media query. Create comprehensive test suite using Jest and React Testing Library. Implement E2E testing with Playwright. Set up Vercel deployment with environment variables and preview deployments. Configure analytics integration (Google Analytics, Vercel Analytics). Add error monitoring with Sentry. Create deployment pipeline with automated testing.",
+        "testStrategy": "Run accessibility audits with axe-core and Lighthouse. Test keyboard navigation and screen reader compatibility. Execute full test suite including unit, integration, and E2E tests. Verify deployment pipeline and environment configurations.",
+        "priority": "high",
+        "dependencies": [
+          "14"
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "version": "1.0.0",
+      "lastModified": "2025-12-23T03:15:45.099Z",
+      "taskCount": 15,
+      "completedCount": 0,
+      "tags": [
+        "master"
       ]
-    },
-    {
-      "id": 2,
-      "title": "Design System & Theme Configuration",
-      "description": "Create comprehensive design system with Knicks brand colors (#F58426 orange, #006BB6 blue), typography, spacing, and reusable design tokens.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "ux-designer",
-      "dependencies": [1],
-      "subtasks": [
-        {"id": "2.1", "title": "Define color palette CSS variables", "status": "pending"},
-        {"id": "2.2", "title": "Set up typography scale", "status": "pending"},
-        {"id": "2.3", "title": "Create spacing and sizing tokens", "status": "pending"},
-        {"id": "2.4", "title": "Design button and input variants", "status": "pending"}
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Page Transition System",
-      "description": "Implement smooth page transitions using Framer Motion with template.tsx, AnimatePresence, and route-based animation variants.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "animated-dashboard-architect",
-      "dependencies": [1, 2],
-      "subtasks": [
-        {"id": "3.1", "title": "Create template.tsx with motion wrapper", "status": "pending"},
-        {"id": "3.2", "title": "Define page transition variants (fade, slide)", "status": "pending"},
-        {"id": "3.3", "title": "Implement AnimatePresence for exit animations", "status": "pending"},
-        {"id": "3.4", "title": "Add loading state with Knicks logo animation", "status": "pending"}
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Navigation Component",
-      "description": "Build sticky navigation with glassmorphism effect, animated mobile menu, mega menu with player images, and smooth scroll functionality.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "beautiful-web-designer",
-      "dependencies": [2],
-      "subtasks": [
-        {"id": "4.1", "title": "Create sticky header with glass effect", "status": "pending"},
-        {"id": "4.2", "title": "Build animated hamburger menu", "status": "pending"},
-        {"id": "4.3", "title": "Implement mega menu dropdown", "status": "pending"},
-        {"id": "4.4", "title": "Add smooth scroll navigation", "status": "pending"}
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Hero Section with Video Background",
-      "description": "Create immersive hero section with full-screen video background, animated logo entrance, parallax scrolling, and dynamic player spotlight.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "animated-dashboard-architect",
-      "dependencies": [3, 4],
-      "subtasks": [
-        {"id": "5.1", "title": "Implement video background with autoplay", "status": "pending"},
-        {"id": "5.2", "title": "Create animated Knicks logo entrance", "status": "pending"},
-        {"id": "5.3", "title": "Add parallax scrolling effect", "status": "pending"},
-        {"id": "5.4", "title": "Build player spotlight with hover effects", "status": "pending"},
-        {"id": "5.5", "title": "Add CTA buttons with pulse animation", "status": "pending"}
-      ]
-    },
-    {
-      "id": 6,
-      "title": "Team Roster Section",
-      "description": "Build player cards with 3D flip animation, high-res photos, stats reveal, position filtering, and featured player carousel.",
-      "status": "pending",
-      "priority": "medium",
-      "agent": "beautiful-web-designer",
-      "dependencies": [2, 3],
-      "subtasks": [
-        {"id": "6.1", "title": "Create player card component with 3D flip", "status": "pending"},
-        {"id": "6.2", "title": "Build stats reveal animation", "status": "pending"},
-        {"id": "6.3", "title": "Implement position filter with transitions", "status": "pending"},
-        {"id": "6.4", "title": "Create featured player carousel", "status": "pending"}
-      ]
-    },
-    {
-      "id": 7,
-      "title": "Schedule & Scores Section",
-      "description": "Create game schedule display with countdown timers, score animations, calendar view, and ticket purchase CTAs.",
-      "status": "pending",
-      "priority": "medium",
-      "agent": "frontend-dev",
-      "dependencies": [2],
-      "subtasks": [
-        {"id": "7.1", "title": "Build game card component", "status": "pending"},
-        {"id": "7.2", "title": "Implement countdown timer", "status": "pending"},
-        {"id": "7.3", "title": "Create score animation effects", "status": "pending"},
-        {"id": "7.4", "title": "Add calendar view with indicators", "status": "pending"}
-      ]
-    },
-    {
-      "id": 8,
-      "title": "News & Highlights Section",
-      "description": "Build news section with video highlight cards, article cards with image zoom, infinite scroll, and category filtering.",
-      "status": "pending",
-      "priority": "medium",
-      "agent": "frontend-dev",
-      "dependencies": [2, 3],
-      "subtasks": [
-        {"id": "8.1", "title": "Create video highlight card with play overlay", "status": "pending"},
-        {"id": "8.2", "title": "Build article card with image zoom", "status": "pending"},
-        {"id": "8.3", "title": "Implement infinite scroll loading", "status": "pending"},
-        {"id": "8.4", "title": "Add category filter with animations", "status": "pending"}
-      ]
-    },
-    {
-      "id": 9,
-      "title": "MSG Experience Section",
-      "description": "Create Madison Square Garden experience section with arena showcase, interactive elements, and fan gallery.",
-      "status": "pending",
-      "priority": "medium",
-      "agent": "beautiful-web-designer",
-      "dependencies": [3],
-      "subtasks": [
-        {"id": "9.1", "title": "Build arena showcase component", "status": "pending"},
-        {"id": "9.2", "title": "Create interactive seating placeholder", "status": "pending"},
-        {"id": "9.3", "title": "Add fan photos gallery with lightbox", "status": "pending"},
-        {"id": "9.4", "title": "Implement atmosphere video section", "status": "pending"}
-      ]
-    },
-    {
-      "id": 10,
-      "title": "Shop Preview Section",
-      "description": "Build merchandise preview with product carousel, quick-view modals, and animated badges.",
-      "status": "pending",
-      "priority": "low",
-      "agent": "frontend-dev",
-      "dependencies": [2],
-      "subtasks": [
-        {"id": "10.1", "title": "Create product card component", "status": "pending"},
-        {"id": "10.2", "title": "Build merchandise carousel", "status": "pending"},
-        {"id": "10.3", "title": "Implement quick-view modal", "status": "pending"},
-        {"id": "10.4", "title": "Add badge animations", "status": "pending"}
-      ]
-    },
-    {
-      "id": 11,
-      "title": "Footer Component",
-      "description": "Create footer with newsletter signup animation, social links with hover effects, staggered link animations, and sponsor carousel.",
-      "status": "pending",
-      "priority": "medium",
-      "agent": "frontend-dev",
-      "dependencies": [2],
-      "subtasks": [
-        {"id": "11.1", "title": "Build newsletter signup with animation", "status": "pending"},
-        {"id": "11.2", "title": "Create social media links", "status": "pending"},
-        {"id": "11.3", "title": "Add staggered link animations", "status": "pending"},
-        {"id": "11.4", "title": "Implement sponsor logos carousel", "status": "pending"}
-      ]
-    },
-    {
-      "id": 12,
-      "title": "Scroll Animations & Micro-interactions",
-      "description": "Implement scroll-triggered animations, parallax effects, counter animations for stats, and micro-interactions throughout.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "animated-dashboard-architect",
-      "dependencies": [5, 6, 7, 8],
-      "subtasks": [
-        {"id": "12.1", "title": "Set up Intersection Observer hooks", "status": "pending"},
-        {"id": "12.2", "title": "Create fade-in scroll animations", "status": "pending"},
-        {"id": "12.3", "title": "Implement counter animations", "status": "pending"},
-        {"id": "12.4", "title": "Add button hover effects with glow", "status": "pending"}
-      ]
-    },
-    {
-      "id": 13,
-      "title": "Responsive Design Implementation",
-      "description": "Ensure fully responsive design across mobile (320px+), tablet (768px+), desktop (1024px+), and large screens (1440px+).",
-      "status": "pending",
-      "priority": "high",
-      "agent": "frontend-dev",
-      "dependencies": [4, 5, 6, 7, 8, 9, 10, 11],
-      "subtasks": [
-        {"id": "13.1", "title": "Mobile-first responsive layouts", "status": "pending"},
-        {"id": "13.2", "title": "Tablet breakpoint adjustments", "status": "pending"},
-        {"id": "13.3", "title": "Desktop and large screen optimization", "status": "pending"},
-        {"id": "13.4", "title": "Touch interactions for mobile", "status": "pending"}
-      ]
-    },
-    {
-      "id": 14,
-      "title": "Performance Optimization",
-      "description": "Optimize for Lighthouse 90+ score with lazy loading, image optimization, code splitting, and reduced motion support.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "frontend-dev",
-      "dependencies": [12, 13],
-      "subtasks": [
-        {"id": "14.1", "title": "Implement lazy loading for images/videos", "status": "pending"},
-        {"id": "14.2", "title": "Add Next.js Image optimization", "status": "pending"},
-        {"id": "14.3", "title": "Configure code splitting", "status": "pending"},
-        {"id": "14.4", "title": "Add reduced motion accessibility", "status": "pending"}
-      ]
-    },
-    {
-      "id": 15,
-      "title": "Testing & Deployment",
-      "description": "Test all animations, accessibility compliance (WCAG 2.1 AA), cross-browser compatibility, and deploy to Vercel.",
-      "status": "pending",
-      "priority": "high",
-      "agent": "test-engineer",
-      "dependencies": [14],
-      "subtasks": [
-        {"id": "15.1", "title": "Animation and interaction testing", "status": "pending"},
-        {"id": "15.2", "title": "Accessibility audit (WCAG 2.1 AA)", "status": "pending"},
-        {"id": "15.3", "title": "Cross-browser testing", "status": "pending"},
-        {"id": "15.4", "title": "Deploy to Vercel", "status": "pending"}
-      ]
-    }
-  ],
-  "metadata": {
-    "projectName": "NY Knicks Modern Website",
-    "createdAt": "2024-12-22",
-    "totalTasks": 15,
-    "totalSubtasks": 58,
-    "agents": {
-      "frontend-dev": 6,
-      "animated-dashboard-architect": 3,
-      "beautiful-web-designer": 3,
-      "ux-designer": 1,
-      "test-engineer": 1
     }
   }
 }
