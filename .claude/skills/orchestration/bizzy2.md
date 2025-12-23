@@ -19,8 +19,9 @@
 [ ] 7. GITHUB REPO      - Create repository (PRIVATE by default)
 [ ] 8. GITHUB LABELS    - Create agent: and priority: labels
 [ ] 9. GITHUB ISSUES    - Create issues for ALL tasks with agent labels
-[ ] 10. AUTO-START      - Set Task 1 to "in-progress"
-[ ] 11. VALIDATE        - Verify ALL outputs exist before showing summary
+[ ] 10. GIT PUSH        - Commit and push all files to the repo
+[ ] 11. AUTO-START      - Set Task 1 to "in-progress"
+[ ] 12. VALIDATE        - Verify ALL outputs exist before showing summary
 ```
 
 ### Final Validation (REQUIRED before summary)
@@ -34,6 +35,7 @@ const REQUIRED_OUTPUTS = {
   ],
   conditions: [
     'GitHub repo created and accessible',
+    'Code committed and pushed to repo',
     'Task 1 status === "in-progress"'
   ]
 };
